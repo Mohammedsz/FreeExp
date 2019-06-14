@@ -213,6 +213,34 @@
     <Compile Include="Migrations\201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.Designer.cs">
       <DependentUpon>201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905262124051_test.cs" />
+    <Compile Include="Migrations\201905262124051_test.Designer.cs">
+      <DependentUpon>201905262124051_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905262127018_test1.cs" />
+    <Compile Include="Migrations\201905262127018_test1.Designer.cs">
+      <DependentUpon>201905262127018_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905262134351_sgfs.cs" />
+    <Compile Include="Migrations\201905262134351_sgfs.Designer.cs">
+      <DependentUpon>201905262134351_sgfs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905262138377_sgfsdfgd.cs" />
+    <Compile Include="Migrations\201905262138377_sgfsdfgd.Designer.cs">
+      <DependentUpon>201905262138377_sgfsdfgd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906141432031_IdentityIni.cs" />
+    <Compile Include="Migrations\201906141432031_IdentityIni.Designer.cs">
+      <DependentUpon>201906141432031_IdentityIni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906141433270_IdentityIn2.cs" />
+    <Compile Include="Migrations\201906141433270_IdentityIn2.Designer.cs">
+      <DependentUpon>201906141433270_IdentityIn2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906141642464_DateTimeToNull.cs" />
+    <Compile Include="Migrations\201906141642464_DateTimeToNull.Designer.cs">
+      <DependentUpon>201906141642464_DateTimeToNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -297,8 +325,10 @@
     <Content Include="Views\RolesAdmin\Details.cshtml" />
     <Content Include="Views\RolesAdmin\Delete.cshtml" />
     <Content Include="Views\RolesAdmin\Edit.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\StudentRegister.cshtml" />
     <Content Include="Views\Account\TrainerRegister.cshtml" />
+    <Content Include="Views\Account\RegisterStuden.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -330,6 +360,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.resx">
       <DependentUpon>201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905262124051_test.resx">
+      <DependentUpon>201905262124051_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905262127018_test1.resx">
+      <DependentUpon>201905262127018_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905262134351_sgfs.resx">
+      <DependentUpon>201905262134351_sgfs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905262138377_sgfsdfgd.resx">
+      <DependentUpon>201905262138377_sgfsdfgd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141432031_IdentityIni.resx">
+      <DependentUpon>201906141432031_IdentityIni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141433270_IdentityIn2.resx">
+      <DependentUpon>201906141433270_IdentityIn2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141642464_DateTimeToNull.resx">
+      <DependentUpon>201906141642464_DateTimeToNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

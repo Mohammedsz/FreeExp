@@ -332,12 +332,12 @@ namespace FreeExp.Controllers.api
             }
 
             var user = new ApplicationUser() {
-                UserName = model.UserName,
+                UserName = model.Email,
                 Email = model.Email,
                 LName = model.LName,
                 FName = model.FName,
-                BirthDate = model.BirthDate,
-                College = model.College
+                College = model.College,
+                //BirthDate = model.BirthDate
             };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -42,12 +43,11 @@ namespace FreeExp.Models
 
         public string LName { get; set; }
 
-        public string PhotoUrl { get; set; }
-
-        [Display(Name = "BirthDate Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
+
+        public string PhotoUrl { get; set; }
 
         public Gender Gender { get; set; }
 
@@ -57,8 +57,8 @@ namespace FreeExp.Models
 
         public string Degree { get; set; }
 
-        [Display(Name ="Work Experince")]
-        public string WorkExp { get; set; }
+        [Display(Name = "Work Experince")]
+        public int WorkExp { get; set; }
 
         public string College { get; set; }
 
@@ -66,13 +66,13 @@ namespace FreeExp.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime GraduationYear { get; set; }
+        public DateTime? GraduationYear { get; set; }
 
         public int GPA { get; set; }
 
         public string Certificate { get; set; }
 
-        public string certificateParty { get; set; }
+        public string CertificateParty { get; set; }
 
         public string JobTitle { get; set; }
 
@@ -80,9 +80,11 @@ namespace FreeExp.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime JobStartDate { get; set; }
+        public DateTime? JobStartDate { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
+
+        public bool AppliedAsInstructor { get; set; }
     }
         public class ApplicationRole : IdentityRole
         {
@@ -104,14 +106,14 @@ namespace FreeExp.Models
                 return new ApplicationDbContext();
             }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ApplicationUser>()
-                .Property(u => u.BirthDate)
-                .HasColumnType("datetime2");
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ApplicationUser>()
+        //        .Property(u => u.BirthDate)
+        //        .HasColumnType("datetime2");
 
-                //(property => property.HasColumnType("datetime2"));
-            base.OnModelCreating(modelBuilder);
-        }
+        //        //(property => property.HasColumnType("datetime2"));
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
-    }
+}

@@ -92,17 +92,17 @@ namespace FreeExp.Controllers
                         UserName = userViewModel.Email,
                         Email =
                         userViewModel.Email,
-                        PhoneNumber = userViewModel.PhoneNumber,
+                        //PhoneNumber = userViewModel.PhoneNumber,
                         // Add the Address Info:
                         // Address = userViewModel.Address,
-                        City = userViewModel.City,
+                        //City = userViewModel.City,
                         //State = userViewModel.State,
                         //PostalCode = userViewModel.PostalCode
                     };
 
                     // Add the Address Info:
                     //user.Address = userViewModel.Address;
-                    user.City = userViewModel.City;
+                    //user.City = userViewModel.City;
                     //user.State = userViewModel.State;
                     //user.PostalCode = userViewModel.PostalCode;
 

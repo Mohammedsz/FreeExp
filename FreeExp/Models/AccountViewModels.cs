@@ -84,30 +84,13 @@ namespace FreeExp.Models
         [StringLength(100, ErrorMessage = "Please Enter Your Name")]
         public string FullName { get; set; }
 
-        [Required(ErrorMessage = "You must provide a phone number")]
-        [Display(Name = "Home Phone")]
-        [DataType(DataType.PhoneNumber)]
-        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
-        public string PhoneNumber { get; set; }
+        public string College { get; set; }
 
-        public string Bio { get; set; }
+        public string FName { get; set; }
 
-        public string PhotoUrl { get; set; }
+        public string LName { get; set; }
 
-        public int Age { get; set; }
-
-        [Required]
-        public string Degree { get; set; }
-
-        [Display(Name = "Work Experince")]
-        public string WorkExp { get; set; }
-
-        [Required]
-        public string Address { get; set; }
-
-        [Required]
-        public string City { get; set; }
-        
+        public string UserName { get; set; }
     }
 
     public class ResetPasswordViewModel

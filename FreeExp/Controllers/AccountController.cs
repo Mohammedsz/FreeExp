@@ -142,18 +142,12 @@ namespace FreeExp.Controllers
             return View();
         }
 
-        [AllowAnonymous]
-        public ActionResult TrainerRegister()
-        {
-            return View();
-        }
-
         //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterBindingModel model)
+        public async Task<ActionResult> Register(TrainerRegister model)
         {
             if (ModelState.IsValid)
             {
@@ -162,15 +156,31 @@ namespace FreeExp.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     BirthDate = model.BirthDate,
+                    Certificate = model.Certificate,
+                    CertificateParty = model.CertificateParty,
+                    City = model.City,
                     College = model.College,
+                    Degree = model.Degree,
+                    FeildStudy = model.FeildStudy,
                     FName = model.FName,
+                    Gender = model.Gender,
+                    GPA = model.GPA,
+                    GraduationYear = model.GraduationYear,
+                    JobOrganization = model.JobOrganization,
+                    JobStartDate = model.JobStartDate,
+                    JobTitle = model.JobTitle,
                     LName = model.LName,
+                    PhoneNumber = model.PhoneNumber,
+                    PhotoUrl = model.PhotoUrl,
+                    Town = model.Town,
+                    WorkExp = model.WorkExp,
+                    AppliedAsInstructor = true
                 };
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -186,35 +196,29 @@ namespace FreeExp.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult RegisterStuden()
+        {
+            return View();
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> TrainerRegister(TrainerRegister model)
+        public async Task<ActionResult> RegisterStuden(RegisterBindingModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
+                var user = new ApplicationUser
+                {
                     UserName = model.Email,
                     Email = model.Email,
-                    BirthDate = model.BirthDate,
-                    Certificate = model.Certificate,
-                    certificateParty = model.certificateParty,
-                    City = model.City,
+                    //BirthDate = model.BirthDate,
                     College = model.College,
-                    Courses = model.Courses,
-                    Degree = model.Degree,
-                    FeildStudy = model.FeildStudy,
                     FName = model.FName,
                     LName = model.LName,
-                    Gender = model.Gender,
-                    GPA = model.GPA,
-                    GraduationYear = model.GraduationYear,
-                    JobOrganization = model.JobOrganization,
-                    JobStartDate = model.JobStartDate,
-                    JobTitle = model.JobTitle,
-                    PhotoUrl = model.PhotoUrl,
-                    Town = model.Town
-
+                    PhoneNumber = model.PhoneNumber,
+                    AppliedAsInstructor = false
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

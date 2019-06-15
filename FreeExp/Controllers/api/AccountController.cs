@@ -337,7 +337,6 @@ namespace FreeExp.Controllers.api
                 LName = model.LName,
                 FName = model.FName,
                 College = model.College,
-                PhoneNumber = model.PhoneNumber
                 //BirthDate = model.BirthDate
             };
 

@@ -151,7 +151,7 @@ namespace FreeExp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser
+                var user = new Instructor
                 {
                     UserName = model.Email,
                     Email = model.Email,
@@ -213,7 +213,7 @@ namespace FreeExp.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    //BirthDate = model.BirthDate,
+                    BirthDate = model.BirthDate,
                     College = model.College,
                     FName = model.FName,
                     LName = model.LName,

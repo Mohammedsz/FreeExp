@@ -14,6 +14,5 @@ namespace FreeExp.Models
         public ApplicationUser User { get; set; }
         public int CourseId { get; set; }
         public Course Course { get; set; }
-
     }
 }

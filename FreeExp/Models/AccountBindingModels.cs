@@ -66,16 +66,15 @@ namespace FreeExp.Models
         [Display(Name = "College/University")]
         public string College { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required]
+        [Display(Name = "Birth Date")]
+        public DateTime BirthDate { get; set; }
     }
 
     public class TrainerRegister : RegisterBindingModel
     {
-        [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [DisplayAttribute(Name = "Birth Date")]
-        public DateTime BirthDate { get; set; }
-
         public string PhotoUrl { get; set; }
 
         [Required]

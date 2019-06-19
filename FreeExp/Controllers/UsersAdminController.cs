@@ -144,7 +144,7 @@ namespace FreeExp.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                var user = await UserManager.FindByIdAsync(id);
+                Instructor user = await UserManager.FindByIdAsync(id) as Instructor;
                 if (user == null)
                 {
                     return HttpNotFound();
@@ -178,7 +178,7 @@ namespace FreeExp.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var user = await UserManager.FindByIdAsync(editUser.Id);
+                    Instructor user = await UserManager.FindByIdAsync(editUser.Id) as Instructor;
                     if (user == null)
                     {
                         return HttpNotFound();

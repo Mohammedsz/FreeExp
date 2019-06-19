@@ -16,6 +16,7 @@ namespace FreeExp.Models
         Female
     }
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    [Table("AspNetUsers")]
     public class ApplicationUser : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -36,7 +37,7 @@ namespace FreeExp.Models
 
         public ApplicationUser()
         {
-            this.Courses = new HashSet<Course>();
+            this.StudentCourses = new HashSet<Course>();
         }
 
         public string FName { get; set; }
@@ -46,6 +47,21 @@ namespace FreeExp.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? BirthDate { get; set; }
+
+        public string College { get; set; }
+
+        public virtual ICollection<Course> StudentCourses { get; set; }
+
+        public bool AppliedAsInstructor { get; set; }
+    }
+
+    [Table("Instructors")]
+    public class Instructor : ApplicationUser
+    {
+        public Instructor()
+        {
+            this.InstructorCourses = new HashSet<Course>();
+        }
 
         public string PhotoUrl { get; set; }
 
@@ -59,8 +75,6 @@ namespace FreeExp.Models
 
         [Display(Name = "Work Experince")]
         public int WorkExp { get; set; }
-
-        public string College { get; set; }
 
         public string FeildStudy { get; set; }
 
@@ -82,11 +96,10 @@ namespace FreeExp.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? JobStartDate { get; set; }
 
-        public virtual ICollection<Course> Courses { get; set; }
-
-        public bool AppliedAsInstructor { get; set; }
+        public virtual ICollection<Course> InstructorCourses { get; set; }
     }
-        public class ApplicationRole : IdentityRole
+
+    public class ApplicationRole : IdentityRole
         {
             public ApplicationRole() : base() { }
             public ApplicationRole(string name) : base(name) { }

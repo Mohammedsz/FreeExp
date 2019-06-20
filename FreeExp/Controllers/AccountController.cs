@@ -174,7 +174,6 @@ namespace FreeExp.Controllers
                     PhotoUrl = model.PhotoUrl,
                     Town = model.Town,
                     WorkExp = model.WorkExp,
-                    AppliedAsInstructor = true
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -218,7 +217,7 @@ namespace FreeExp.Controllers
                     FName = model.FName,
                     LName = model.LName,
                     PhoneNumber = model.PhoneNumber,
-                    AppliedAsInstructor = false
+                    //AppliedAsInstructor = false
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

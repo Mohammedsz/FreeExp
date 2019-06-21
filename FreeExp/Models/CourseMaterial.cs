@@ -12,6 +12,7 @@ namespace FreeExp.Models
         public string Note { get; set; }
         public string URL { get; set; }
         public byte[] File { get; set; }
+        public string FileType { get; set; }
         public virtual Course Course { get; set; }
     }
 }

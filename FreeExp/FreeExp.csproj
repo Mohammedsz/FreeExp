@@ -255,7 +255,9 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\Center.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseMaterial.cs" />
     <Compile Include="Models\CourseSession.cs" />
     <Compile Include="Models\CourseSessionAttendance.cs" />
     <Compile Include="Models\Department.cs" />

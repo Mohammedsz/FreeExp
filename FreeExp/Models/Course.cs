@@ -23,5 +23,8 @@ namespace FreeExp.Models
         public virtual ICollection<CourseSession> CourseSessions { get; set; }
         public virtual ICollection<Question> QandAs { get; set; }
         public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<CourseMaterial> Materials { get; set; }
+        public virtual Center Center { get; set; } //may be need more prop in bridge
+        
     }
 }

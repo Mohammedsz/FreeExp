@@ -247,11 +247,17 @@
     <Compile Include="Migrations\201906151916438_UtilizeInstrucorTable.Designer.cs">
       <DependentUpon>201906151916438_UtilizeInstrucorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906192358270_initModel.cs" />
+    <Compile Include="Migrations\201906192358270_initModel.Designer.cs">
+      <DependentUpon>201906192358270_initModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\Center.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseMaterial.cs" />
     <Compile Include="Models\CourseSession.cs" />
     <Compile Include="Models\CourseSessionAttendance.cs" />
     <Compile Include="Models\Department.cs" />
@@ -387,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906151916438_UtilizeInstrucorTable.resx">
       <DependentUpon>201906151916438_UtilizeInstrucorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906192358270_initModel.resx">
+      <DependentUpon>201906192358270_initModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

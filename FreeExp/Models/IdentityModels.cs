@@ -35,11 +35,6 @@ namespace FreeExp.Models
             return userIdentity;
         }
 
-        public ApplicationUser()
-        {
-            this.StudentCourses = new HashSet<Course>();
-        }
-
         public string FName { get; set; }
 
         public string LName { get; set; }
@@ -49,10 +44,18 @@ namespace FreeExp.Models
         public DateTime? BirthDate { get; set; }
 
         public string College { get; set; }
+    }
 
+    [Table("Students")]
+    public class Student : ApplicationUser
+    {
+        public Student()
+        {
+            QandAs = new HashSet<Question>();
+        }
         public virtual ICollection<Course> StudentCourses { get; set; }
 
-        public bool AppliedAsInstructor { get; set; }
+        public virtual ICollection<Question> QandAs { get; set; }
     }
 
     [Table("Instructors")]

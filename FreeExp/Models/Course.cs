@@ -9,7 +9,7 @@ namespace FreeExp.Models
     {
         public Course()
         {
-            this.ApplicationUsers = new HashSet<ApplicationUser>();
+            this.Students = new HashSet<Student>();
         }
 
         public int Id { get; set; }
@@ -19,9 +19,12 @@ namespace FreeExp.Models
         public DateTime LastUpdateOn { get; set; }
         public string Description { get; set; }
         public string Requirments { get; set; }
-        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
+        public virtual Instructor Instructor { get; set; }
         public virtual ICollection<CourseSession> CourseSessions { get; set; }
-        public virtual ICollection<QandA> QandAs { get; set; }
-
+        public virtual ICollection<Question> QandAs { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<CourseMaterial> Materials { get; set; }
+        public virtual Center Center { get; set; } //may be need more prop in bridge
+        
     }
 }

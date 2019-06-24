@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity.ModelConfiguration;
 
 namespace FreeExp.Models
 {
@@ -18,15 +17,6 @@ namespace FreeExp.Models
         public string Address { get; set; }
         public string VideoUrl { get; set; }
         public string YouTubeIFrame { get; set; }
-        public Center Center { get; set; }
-        public int CnterId { get; set; }
-    }
 
-    public class CourseSessionconfigration : EntityTypeConfiguration<CourseSession>
-    {
-        public CourseSessionconfigration()
-        {
-            HasRequired(t => t.Center).WithMany(t => t.CourseSessions).HasForeignKey(t => t.CnterId);
-        }
     }
 }

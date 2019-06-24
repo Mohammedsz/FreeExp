@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity.ModelConfiguration;
 
 namespace FreeExp.Models
 {
@@ -14,15 +13,6 @@ namespace FreeExp.Models
         public string URL { get; set; }
         public byte[] File { get; set; }
         public string FileType { get; set; }
-        public int CourseID { get; set; }
         public virtual Course Course { get; set; }
-    }
-
-    public class CourseMaterialConfigurations : EntityTypeConfiguration<CourseMaterial>
-    {
-        public CourseMaterialConfigurations()
-        {
-            HasRequired(t => t.Course).WithMany(t => t.Materials).HasForeignKey(t => t.CourseID).WillCascadeOnDelete(true);
-        }
     }
 }

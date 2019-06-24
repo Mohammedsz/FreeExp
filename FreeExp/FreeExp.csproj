@@ -196,60 +196,104 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905160259265_iniDb.cs" />
-    <Compile Include="Migrations\201905160259265_iniDb.Designer.cs">
+    <Compile Include="Migrations\201905160259265_iniDb.designer.cs">
       <DependentUpon>201905160259265_iniDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905241845164_editUserTable.cs" />
-    <Compile Include="Migrations\201905241845164_editUserTable.Designer.cs">
+    <Compile Include="Migrations\201905241845164_editUserTable.designer.cs">
       <DependentUpon>201905241845164_editUserTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905241952108_editUserTableDataAttr.cs" />
-    <Compile Include="Migrations\201905241952108_editUserTableDataAttr.Designer.cs">
+    <Compile Include="Migrations\201905241952108_editUserTableDataAttr.designer.cs">
       <DependentUpon>201905241952108_editUserTableDataAttr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905252149593_modifiyBirthDatToDatetime2.cs" />
-    <Compile Include="Migrations\201905252149593_modifiyBirthDatToDatetime2.Designer.cs">
+    <Compile Include="Migrations\201905252149593_modifiyBirthDatToDatetime2.designer.cs">
       <DependentUpon>201905252149593_modifiyBirthDatToDatetime2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.cs" />
-    <Compile Include="Migrations\201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.Designer.cs">
+    <Compile Include="Migrations\201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.designer.cs">
       <DependentUpon>201905252203035_ModifiyUserTableBirthDateColumnTypeToDatetime2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905262124051_test.cs" />
-    <Compile Include="Migrations\201905262124051_test.Designer.cs">
+    <Compile Include="Migrations\201905262124051_test.designer.cs">
       <DependentUpon>201905262124051_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905262127018_test1.cs" />
-    <Compile Include="Migrations\201905262127018_test1.Designer.cs">
+    <Compile Include="Migrations\201905262127018_test1.designer.cs">
       <DependentUpon>201905262127018_test1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905262134351_sgfs.cs" />
-    <Compile Include="Migrations\201905262134351_sgfs.Designer.cs">
+    <Compile Include="Migrations\201905262134351_sgfs.designer.cs">
       <DependentUpon>201905262134351_sgfs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201905262138377_sgfsdfgd.cs" />
-    <Compile Include="Migrations\201905262138377_sgfsdfgd.Designer.cs">
+    <Compile Include="Migrations\201905262138377_sgfsdfgd.designer.cs">
       <DependentUpon>201905262138377_sgfsdfgd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201906141432031_IdentityIni.cs" />
-    <Compile Include="Migrations\201906141432031_IdentityIni.Designer.cs">
+    <Compile Include="Migrations\201906141432031_IdentityIni.designer.cs">
       <DependentUpon>201906141432031_IdentityIni.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201906141433270_IdentityIn2.cs" />
-    <Compile Include="Migrations\201906141433270_IdentityIn2.Designer.cs">
+    <Compile Include="Migrations\201906141433270_IdentityIn2.designer.cs">
       <DependentUpon>201906141433270_IdentityIn2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201906141642464_DateTimeToNull.cs" />
-    <Compile Include="Migrations\201906141642464_DateTimeToNull.Designer.cs">
+    <Compile Include="Migrations\201906141642464_DateTimeToNull.designer.cs">
       <DependentUpon>201906141642464_DateTimeToNull.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201906151916438_UtilizeInstrucorTable.cs" />
-    <Compile Include="Migrations\201906151916438_UtilizeInstrucorTable.Designer.cs">
+    <Compile Include="Migrations\201906151916438_UtilizeInstrucorTable.designer.cs">
       <DependentUpon>201906151916438_UtilizeInstrucorTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201906192358270_initModel.cs" />
-    <Compile Include="Migrations\201906192358270_initModel.Designer.cs">
+    <Compile Include="Migrations\201906192358270_initModel.designer.cs">
       <DependentUpon>201906192358270_initModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232215004_RenameQuestionTableToQuestionAndAnswer.cs" />
+    <Compile Include="Migrations\201906232215004_RenameQuestionTableToQuestionAndAnswer.designer.cs">
+      <DependentUpon>201906232215004_RenameQuestionTableToQuestionAndAnswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232216565_ModifiyQandArelationshipwithstudent.cs" />
+    <Compile Include="Migrations\201906232216565_ModifiyQandArelationshipwithstudent.designer.cs">
+      <DependentUpon>201906232216565_ModifiyQandArelationshipwithstudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232221173_ModifiyQandArelationshipwithstudent2.cs" />
+    <Compile Include="Migrations\201906232221173_ModifiyQandArelationshipwithstudent2.designer.cs">
+      <DependentUpon>201906232221173_ModifiyQandArelationshipwithstudent2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232222037_ModifiyQandArelationshipwithstudent3.cs" />
+    <Compile Include="Migrations\201906232222037_ModifiyQandArelationshipwithstudent3.designer.cs">
+      <DependentUpon>201906232222037_ModifiyQandArelationshipwithstudent3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232236285_BuildRelationshipBetweenAppuserAndQandA.cs" />
+    <Compile Include="Migrations\201906232236285_BuildRelationshipBetweenAppuserAndQandA.designer.cs">
+      <DependentUpon>201906232236285_BuildRelationshipBetweenAppuserAndQandA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232318166_IniPracticeQandATable.cs" />
+    <Compile Include="Migrations\201906232318166_IniPracticeQandATable.designer.cs">
+      <DependentUpon>201906232318166_IniPracticeQandATable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906232349076_IniCourseMaterialRelashionshipWithCourseTable.cs" />
+    <Compile Include="Migrations\201906232349076_IniCourseMaterialRelashionshipWithCourseTable.designer.cs">
+      <DependentUpon>201906232349076_IniCourseMaterialRelashionshipWithCourseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906240018285_IniCenterTable.cs" />
+    <Compile Include="Migrations\201906240018285_IniCenterTable.designer.cs">
+      <DependentUpon>201906240018285_IniCenterTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906240045220_StudentCourseRelationship.cs" />
+    <Compile Include="Migrations\201906240045220_StudentCourseRelationship.designer.cs">
+      <DependentUpon>201906240045220_StudentCourseRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906240048577_StudentCourseValidName.cs" />
+    <Compile Include="Migrations\201906240048577_StudentCourseValidName.designer.cs">
+      <DependentUpon>201906240048577_StudentCourseValidName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906240108295_CourseSessionRelationship.cs" />
+    <Compile Include="Migrations\201906240108295_CourseSessionRelationship.designer.cs">
+      <DependentUpon>201906240108295_CourseSessionRelationship.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -355,6 +399,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Migrations\201905160259265_iniDb.resx">
       <DependentUpon>201905160259265_iniDb.cs</DependentUpon>
     </EmbeddedResource>
@@ -397,11 +444,44 @@
     <EmbeddedResource Include="Migrations\201906192358270_initModel.resx">
       <DependentUpon>201906192358270_initModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232215004_RenameQuestionTableToQuestionAndAnswer.resx">
+      <DependentUpon>201906232215004_RenameQuestionTableToQuestionAndAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232216565_ModifiyQandArelationshipwithstudent.resx">
+      <DependentUpon>201906232216565_ModifiyQandArelationshipwithstudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232221173_ModifiyQandArelationshipwithstudent2.resx">
+      <DependentUpon>201906232221173_ModifiyQandArelationshipwithstudent2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232222037_ModifiyQandArelationshipwithstudent3.resx">
+      <DependentUpon>201906232222037_ModifiyQandArelationshipwithstudent3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232236285_BuildRelationshipBetweenAppuserAndQandA.resx">
+      <DependentUpon>201906232236285_BuildRelationshipBetweenAppuserAndQandA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232318166_IniPracticeQandATable.resx">
+      <DependentUpon>201906232318166_IniPracticeQandATable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906232349076_IniCourseMaterialRelashionshipWithCourseTable.resx">
+      <DependentUpon>201906232349076_IniCourseMaterialRelashionshipWithCourseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906240018285_IniCenterTable.resx">
+      <DependentUpon>201906240018285_IniCenterTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906240045220_StudentCourseRelationship.resx">
+      <DependentUpon>201906240045220_StudentCourseRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906240048577_StudentCourseValidName.resx">
+      <DependentUpon>201906240048577_StudentCourseValidName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906240108295_CourseSessionRelationship.resx">
+      <DependentUpon>201906240108295_CourseSessionRelationship.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Folder Include="Migrations\NewFolder1\" />
+    <Folder Include="Models\NewFolder1\" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

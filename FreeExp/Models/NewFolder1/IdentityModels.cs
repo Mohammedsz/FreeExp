@@ -7,7 +7,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity.ModelConfiguration;
 
 namespace FreeExp.Models
 {
@@ -20,11 +19,6 @@ namespace FreeExp.Models
     [Table("AspNetUsers")]
     public class ApplicationUser : IdentityUser
     {
-        public ApplicationUser()
-        {
-            QandAs = new HashSet<QandA>();
-        }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -50,52 +44,18 @@ namespace FreeExp.Models
         public DateTime? BirthDate { get; set; }
 
         public string College { get; set; }
-
-        public virtual ICollection<QandA> QandAs { get; set; }
-        public virtual ICollection<PracticeQandAs> PracticeQandAs { get; set; }
-    }
-
-    public class PracticeQandAs
-    {
-        public PracticeQandAs()
-        {
-            AnswerDate = DateTime.Now;
-        }
-        public string UserId { get; set; }
-        public DateTime AnswerDate { get; private set; }
-        public int QandAId { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
-        public virtual QandA QandA { get; set; }
-    }
-
-    public class PracticeQandAsConfigurations : EntityTypeConfiguration<PracticeQandAs>
-    {
-        public PracticeQandAsConfigurations()
-        {
-            HasKey(t => new { t.UserId, t.QandAId, t.AnswerDate });
-            HasRequired(t => t.ApplicationUser).WithMany(t => t.PracticeQandAs).HasForeignKey(t => t.UserId);
-            HasRequired(t => t.QandA).WithMany(t => t.PracticeQandAs).HasForeignKey(t => t.QandAId);
-        }
     }
 
     [Table("Students")]
     public class Student : ApplicationUser
     {
-        //public Student()
-        //{
-        //    QandAs = new HashSet<QandA>();
-        //}
-        public virtual ICollection<StudentCourses> StudentCourses { get; set; }
-
-        //
-    }
-
-    public class ApplicationUserConfigurations : EntityTypeConfiguration<ApplicationUser>
-    {
-        public ApplicationUserConfigurations()
+        public Student()
         {
-            HasMany(t => t.QandAs).WithRequired(t => t.User).HasForeignKey(t => t.UserOwnerId).WillCascadeOnDelete(false);
+            QandAs = new HashSet<Question>();
         }
+        public virtual ICollection<Course> StudentCourses { get; set; }
+
+        public virtual ICollection<Question> QandAs { get; set; }
     }
 
     [Table("Instructors")]
@@ -162,27 +122,14 @@ namespace FreeExp.Models
                 return new ApplicationDbContext();
             }
 
-        public DbSet<PracticeQandAs> PracticeQandAs { get; set; }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<CourseMaterial> CourseMaterials { get; set; }
-        public DbSet<Center> Centers { get; set; }
-        public DbSet<StudentCourses> StudentCourses { get; set; }
-        public DbSet<CourseSession> CourseSessions { get; set; }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ApplicationUser>()
+        //        .Property(u => u.BirthDate)
+        //        .HasColumnType("datetime2");
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Configurations.Add(new ApplicationUserConfigurations());
-            modelBuilder.Configurations.Add(new PracticeQandAsConfigurations());
-            modelBuilder.Configurations.Add(new CourseMaterialConfigurations());
-            modelBuilder.Configurations.Add(new CenterConfigrations());
-            modelBuilder.Configurations.Add(new StudentCoursesConfiguration());
-            modelBuilder.Configurations.Add(new CourseSessionconfigration());
-            //    modelBuilder.Entity<ApplicationUser>()
-            //        .Property(u => u.BirthDate)
-            //        .HasColumnType("datetime2");
-
-            //        //(property => property.HasColumnType("datetime2"));
-            base.OnModelCreating(modelBuilder);
-        }
+        //        //(property => property.HasColumnType("datetime2"));
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
 
@@ -9,9 +10,9 @@ namespace FreeExp.Models
     {
         public Course()
         {
-            this.Students = new HashSet<Student>();
+            this.Students = new HashSet<StudentCourses>();
         }
-        /*test*/
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Duration { get; set; }
@@ -21,10 +22,38 @@ namespace FreeExp.Models
         public string Requirments { get; set; }
         public virtual Instructor Instructor { get; set; }
         public virtual ICollection<CourseSession> CourseSessions { get; set; }
-        public virtual ICollection<Question> QandAs { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<QandA> QandAs { get; set; }
+        public virtual ICollection<StudentCourses> Students { get; set; }
         public virtual ICollection<CourseMaterial> Materials { get; set; }
         public virtual Center Center { get; set; } //may be need more prop in bridge
-        
+        public int CenterID { get; set; }
+        public string InstrucotrId { get; set; }
+    }
+
+    public class StudentCourses
+    {
+        public string StudentId { get; set; }
+        public int CourseId { get; set; }
+        public virtual Student Student { get; set; }
+        public virtual Course Course { get; set; }
+    }
+
+    public class CourseConfigrations : EntityTypeConfiguration<Course>
+    {
+        public CourseConfigrations()
+        {
+            HasOptional(t => t.Center).WithMany(t => t.Courses).HasForeignKey(t => t.CenterID);
+            HasRequired(t => t.Instructor).WithMany(t => t.InstructorCourses).HasForeignKey(t => t.InstrucotrId);
+        }
+    }
+
+    public class StudentCoursesConfiguration : EntityTypeConfiguration<StudentCourses>
+    {
+        public StudentCoursesConfiguration()
+        {
+            HasKey(t => new { t.CourseId, t.StudentId });
+            HasRequired(t => t.Student).WithMany(t => t.StudentCourses).HasForeignKey(t => t.StudentId);
+            HasRequired(t => t.Course).WithMany(t => t.Students).HasForeignKey(t => t.CourseId);
+        }
     }
 }

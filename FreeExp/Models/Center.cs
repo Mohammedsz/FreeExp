@@ -13,12 +13,6 @@ namespace FreeExp.Models
 
         public string Address { get; set; }
 
-        //[Column(TypeName = "decimal(10, 6)")]
-        public decimal Lat { get; set; }
-
-        //[Column(TypeName = "decimal(10, 6)")]
-        public decimal lng { get; set; }
-
         public virtual ICollection<Course> Courses { get; set; }
 
         public virtual ICollection<CourseSession> CourseSessions { get; set; }

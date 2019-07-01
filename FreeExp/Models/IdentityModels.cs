@@ -63,6 +63,8 @@ namespace FreeExp.Models
         }
         public string UserId { get; set; }
         public DateTime AnswerDate { get; private set; }
+        public string AnswerBody { get; set; }
+
         public int QandAId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual QandA QandA { get; set; }

@@ -53,6 +53,7 @@ namespace FreeExp.Models
 
         public virtual ICollection<QandA> QandAs { get; set; }
         public virtual ICollection<PracticeQandAs> PracticeQandAs { get; set; }
+        
     }
 
     public class PracticeQandAs
@@ -87,9 +88,8 @@ namespace FreeExp.Models
         //{
         //    QandAs = new HashSet<QandA>();
         //}
-        public virtual ICollection<StudentCourses> StudentCourses { get; set; }
 
-        //
+        public virtual ICollection<Course> Courses { get; set; }
     }
 
     public class ApplicationUserConfigurations : EntityTypeConfiguration<ApplicationUser>
@@ -105,7 +105,6 @@ namespace FreeExp.Models
     {
         public Instructor()
         {
-            this.InstructorCourses = new HashSet<Course>();
         }
 
         public string PhotoUrl { get; set; }
@@ -141,7 +140,7 @@ namespace FreeExp.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? JobStartDate { get; set; }
 
-        public virtual ICollection<Course> InstructorCourses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 
     public class ApplicationRole : IdentityRole
@@ -168,8 +167,11 @@ namespace FreeExp.Models
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseMaterial> CourseMaterials { get; set; }
         public DbSet<Center> Centers { get; set; }
-        public DbSet<StudentCourses> StudentCourses { get; set; }
+        //public DbSet<StudentCourses> StudentCourses { get; set; }
         public DbSet<CourseSession> CourseSessions { get; set; }
+        public DbSet<QandA> QandAs { get; set; }
+        public DbSet<Department> Departments { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -177,7 +179,7 @@ namespace FreeExp.Models
             modelBuilder.Configurations.Add(new PracticeQandAsConfigurations());
             modelBuilder.Configurations.Add(new CourseMaterialConfigurations());
             modelBuilder.Configurations.Add(new CenterConfigrations());
-            modelBuilder.Configurations.Add(new StudentCoursesConfiguration());
+            //modelBuilder.Configurations.Add(new StudentCoursesConfiguration());
             modelBuilder.Configurations.Add(new CourseSessionconfigration());
             //    modelBuilder.Entity<ApplicationUser>()
             //        .Property(u => u.BirthDate)

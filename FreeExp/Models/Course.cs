@@ -10,7 +10,7 @@ namespace FreeExp.Models
     {
         public Course()
         {
-            this.Students = new HashSet<StudentCourses>();
+            //this.Students = new HashSet<StudentCourses>();
         }
 
         public int Id { get; set; }
@@ -21,13 +21,15 @@ namespace FreeExp.Models
         public string Description { get; set; }
         public string Requirments { get; set; }
         public virtual Instructor Instructor { get; set; }
+        public virtual Department Department { get; set; }
         public virtual ICollection<CourseSession> CourseSessions { get; set; }
         public virtual ICollection<QandA> QandAs { get; set; }
-        public virtual ICollection<StudentCourses> Students { get; set; }
+        public virtual ICollection<Student> Students { get; set; } //=>what ?
         public virtual ICollection<CourseMaterial> Materials { get; set; }
         public virtual Center Center { get; set; } //may be need more prop in bridge
         public int CenterID { get; set; }
         public string InstrucotrId { get; set; }
+        public int DepartmentId { get; set; }
     }
 
     public class StudentCourses
@@ -43,7 +45,6 @@ namespace FreeExp.Models
         public CourseConfigrations()
         {
             HasOptional(t => t.Center).WithMany(t => t.Courses).HasForeignKey(t => t.CenterID);
-            HasRequired(t => t.Instructor).WithMany(t => t.InstructorCourses).HasForeignKey(t => t.InstrucotrId);
         }
     }
 
@@ -52,8 +53,7 @@ namespace FreeExp.Models
         public StudentCoursesConfiguration()
         {
             HasKey(t => new { t.CourseId, t.StudentId });
-            HasRequired(t => t.Student).WithMany(t => t.StudentCourses).HasForeignKey(t => t.StudentId);
-            HasRequired(t => t.Course).WithMany(t => t.Students).HasForeignKey(t => t.CourseId);
+            //HasRequired(t => t.Course).WithMany(t => t.Students).HasForeignKey(t => t.CourseId);
         }
     }
 }

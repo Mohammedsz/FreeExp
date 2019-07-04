@@ -22,8 +22,8 @@ namespace FreeExp.Models
     {
         public CenterConfigrations()
         {
-            Property(e => e.Lat).HasPrecision(10, 6);
-            Property(e => e.Lat).HasPrecision(10, 6);
+            //Property(e => e.Lat).HasPrecision(10, 6);
+            //Property(e => e.Lat).HasPrecision(10, 6);
         }
     }
 }

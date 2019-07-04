@@ -187,9 +187,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\AccountController.cs" />
+    <Compile Include="Controllers\CenterController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MaterialController.cs" />
+    <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -313,12 +319,9 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Course.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-FreeExp-20190430064047.mdf" />
-    <Content Include="App_Data\aspnet-FreeExp-20190430064047_log.ldf">
-      <DependentUpon>aspnet-FreeExp-20190430064047.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -618,8 +621,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="CourseMaterial\" />
     <Folder Include="Migrations\NewFolder1\" />
     <Folder Include="Models\NewFolder1\" />
+    <Folder Include="Views\Center\" />
+    <Folder Include="Views\Course\" />
+    <Folder Include="Views\Department\" />
+    <Folder Include="Views\Material\" />
+    <Folder Include="Views\QandA\" />
+    <Folder Include="Views\Session\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

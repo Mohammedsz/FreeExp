@@ -9,24 +9,26 @@ namespace FreeExp.Models
     public class CourseSession
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; }//why ?
         public TimeSpan Duration { get; set; }
         public string Description { get; set; }
         public DateTime SessionDate { get; set; }
         public DateTime StartFrom { get; set; }
         public DateTime EndAt { get; set; }
-        public string Address { get; set; }
+        public string Address { get; set; }// why ?
         public string VideoUrl { get; set; }
         public string YouTubeIFrame { get; set; }
-        public Center Center { get; set; }
-        public int CnterId { get; set; }
+        //public Center Center { get; set; }
+        //public int CnterId { get; set; }
+        public Course Course { get; set; }
+        public int CourseId { get; set; }
     }
 
     public class CourseSessionconfigration : EntityTypeConfiguration<CourseSession>
     {
         public CourseSessionconfigration()
         {
-            HasRequired(t => t.Center).WithMany(t => t.CourseSessions).HasForeignKey(t => t.CnterId);
+            //HasRequired(t => t.Center).WithMany(t => t.CourseSessions).HasForeignKey(t => t.CnterId);
         }
     }
 }

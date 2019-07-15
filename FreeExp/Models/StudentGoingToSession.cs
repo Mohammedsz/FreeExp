@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FreeExp.Models
 {
-    public class CourseSessionAttendance
+    public class StudentGoingToSession
     {
         public int Id { get; set; }
         public int CourseSessionId { get; set; }

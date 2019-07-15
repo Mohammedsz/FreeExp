@@ -44,6 +44,7 @@ namespace FreeExp.Models
         public string FName { get; set; }
 
         public string LName { get; set; }
+        public string PhotoUrl { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -84,11 +85,6 @@ namespace FreeExp.Models
     [Table("Students")]
     public class Student : ApplicationUser
     {
-        //public Student()
-        //{
-        //    QandAs = new HashSet<QandA>();
-        //}
-
         public virtual ICollection<Course> Courses { get; set; }
     }
 
@@ -107,7 +103,7 @@ namespace FreeExp.Models
         {
         }
 
-        public string PhotoUrl { get; set; }
+        public string CV { get; set; }
 
         public Gender Gender { get; set; }
 
@@ -167,11 +163,11 @@ namespace FreeExp.Models
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseMaterial> CourseMaterials { get; set; }
         public DbSet<Center> Centers { get; set; }
-        //public DbSet<StudentCourses> StudentCourses { get; set; }
         public DbSet<CourseSession> CourseSessions { get; set; }
         public DbSet<QandA> QandAs { get; set; }
         public DbSet<Department> Departments { get; set; }
-
+        public DbSet<StudentGoingToSession> studentGoingToSessions { get; set; }
+        public DbSet<StudentCourses> StudentCourses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -15,11 +15,9 @@ namespace FreeExp.Models
         public DateTime SessionDate { get; set; }
         public DateTime StartFrom { get; set; }
         public DateTime EndAt { get; set; }
-        public string Address { get; set; }// why ?
+        public string Address { get; set; }
         public string VideoUrl { get; set; }
         public string YouTubeIFrame { get; set; }
-        //public Center Center { get; set; }
-        //public int CnterId { get; set; }
         public Course Course { get; set; }
         public int CourseId { get; set; }
     }

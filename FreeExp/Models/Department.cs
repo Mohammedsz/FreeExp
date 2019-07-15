@@ -9,7 +9,6 @@ namespace FreeExp.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Level { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
     }

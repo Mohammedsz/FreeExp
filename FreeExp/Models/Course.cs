@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
@@ -14,12 +16,15 @@ namespace FreeExp.Models
         }
 
         public int Id { get; set; }
+        public string PhotoUrl { get; set; }
         public string Name { get; set; }
         public string Duration { get; set; }
         public int Lectures { get; set; }
         public DateTime LastUpdateOn { get; set; }
         public string Description { get; set; }
         public string Requirments { get; set; }
+        public string Level { get; set; }
+
         public virtual Instructor Instructor { get; set; }
         public virtual Department Department { get; set; }
         public virtual ICollection<CourseSession> CourseSessions { get; set; }
@@ -31,9 +36,11 @@ namespace FreeExp.Models
         public string InstrucotrId { get; set; }
         public int DepartmentId { get; set; }
     }
-
+    [Table("StudentCourses")]
     public class StudentCourses
     {
+        [Key]
+        public int RollId { get; set; }
         public string StudentId { get; set; }
         public int CourseId { get; set; }
         public virtual Student Student { get; set; }

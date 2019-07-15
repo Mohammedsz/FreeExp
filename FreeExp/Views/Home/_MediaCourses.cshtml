@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FreeExp.Models.Course>
+@using FreeExp.Helper
+
+<div class="popular_courses lite_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="main_title">
+                    <h2>Popular Courses In Media</h2>
+                    <p>
+                        There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s
+                        exciting to think about setting up your own viewing station.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <!-- single course -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single_course">
+                            <div class="course_head overlay">
+                                <img class="img-fluid w-100" src="~/Content/PhotosUrl/@item.PhotoUrl" alt="">
+                                <div class="authr_meta">
+                                    <img src="~/Content/UserPhotosUrl/@item.Instructor.PhotoUrl" alt="">
+                                    <span>@item.Instructor.FName </span>
+                                </div>
+                            </div>
+                            <div class="course_content">
+                                <h4>
+                                    @Html.ActionLink(@item.Name, "Edit", "Course", new { id = item.Id, title = Html.ClearnUrl(item.Name) }, null)
+
+                                </h4>
+                                <p>
+                                    @item.Description
+                                </p>
+                                <div class="course_meta d-flex justify-content-between">
+                                    <div>
+                                        <span class="meta_info">
+                                            <a href="#"><i class="lnr lnr-user"></i>355</a>
+                                        </span>
+                                        <span class="meta_info">
+                                            <a href="#">
+                                                <i class="lnr lnr-bubble"></i>35
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="price">@item.Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <script type="text/javascript">
+                    alert("Model empty");
+                </script>
+            }
+        </div>
+    </div>
+</div>

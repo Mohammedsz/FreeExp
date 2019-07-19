@@ -168,6 +168,7 @@ namespace FreeExp.Models
         public DbSet<Department> Departments { get; set; }
         public DbSet<StudentGoingToSession> studentGoingToSessions { get; set; }
         public DbSet<StudentCourses> StudentCourses { get; set; }
+        public DbSet<RatingAndReview> RatingAndReviews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace FreeExp.Controllers
 {
+    [RoutePrefix("Course")]
     public class CourseController : Controller
     {
         private ApplicationDbContext _context;
@@ -29,13 +30,16 @@ namespace FreeExp.Controllers
             List<Course> courses = Context.Courses.OrderByDescending(x => x.Students.Count).ToList();
             return View("", courses);
         }
-        [Authorize(Roles = "Instructor")]
+        [Route("")]
+        //[Authorize(Roles = "Instructor")]
         public ActionResult Create()
         {
+            List<Department> departments = Context.Departments.ToList();
+            ViewBag.departments = departments;
             return View();
         }
         [HttpPost]
-        [Authorize(Roles = "Instructor")]
+        //[Authorize(Roles = "Instructor")]
         public ActionResult Add(Course course)
         {
             if (ModelState.IsValid)
@@ -60,7 +64,7 @@ namespace FreeExp.Controllers
                 cou.Description = course.Description;
                 cou.Duration = course.Duration;
                 cou.Lectures = course.Lectures;
-                cou.LastUpdateOn = DateTime.Now;
+                //cou.LastUpdateOn = DateTime.Now;
                 cou.Requirments = course.Requirments;
                 cou.InstrucotrId = course.InstrucotrId;
                 cou.CenterID = course.CenterID;

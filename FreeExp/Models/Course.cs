@@ -31,8 +31,6 @@ namespace FreeExp.Models
         public virtual ICollection<QandA> QandAs { get; set; }
         public virtual ICollection<Student> Students { get; set; } //=>what ?
         public virtual ICollection<CourseMaterial> Materials { get; set; }
-        public virtual Center Center { get; set; } //may be need more prop in bridge
-        public int CenterID { get; set; }
         public string InstrucotrId { get; set; }
         public int DepartmentId { get; set; }
     }
@@ -49,10 +47,10 @@ namespace FreeExp.Models
 
     public class CourseConfigrations : EntityTypeConfiguration<Course>
     {
-        public CourseConfigrations()
-        {
-            HasOptional(t => t.Center).WithMany(t => t.Courses).HasForeignKey(t => t.CenterID);
-        }
+        //public CourseConfigrations()
+        //{
+        //    HasOptional(t => t.Center).WithMany(t => t.Courses).HasForeignKey(t => t.CenterID);
+        //}
     }
 
     public class StudentCoursesConfiguration : EntityTypeConfiguration<StudentCourses>

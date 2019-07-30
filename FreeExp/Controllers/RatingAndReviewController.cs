@@ -26,23 +26,16 @@ namespace FreeExp.Controllers
             set { _context = value; }
         }
 
-        [Authorize(Roles = "Student")]
-        public ActionResult Add([FromBody]int courseId, [FromBody]int rating)
+        //[Authorize(Roles = "Student")]
+        public ActionResult Add(RatingAndReview ratingAndReview)
         {
-            string userId = User.Identity.GetUserId();
-            if (Context.StudentCourses.Where(x => x.StudentId == userId)
-                .Where(x => x.CourseId == courseId).Any())
-            {
-                RatingAndReview ratingAndReview = new RatingAndReview
-                {
-                    StudentId = userId,
-                    CourseId = courseId,
-                    Rating = rating
-                };
-                Context.RatingAndReviews.Add(ratingAndReview);
-                Context.SaveChanges();
-            }
-            return new EmptyResult();
+            RatingAndReview rating = new RatingAndReview();
+            rating.CourseId = ratingAndReview.CourseId;
+            rating.Rating = ratingAndReview.Rating;
+            rating.StudentId = ratingAndReview.StudentId;
+            Context.RatingAndReviews.Add(rating);
+            Context.SaveChanges();
+            return Json("Ok");
         }
 
         public ActionResult Rating()

@@ -67,7 +67,6 @@ namespace FreeExp.Controllers
                 //cou.LastUpdateOn = DateTime.Now;
                 cou.Requirments = course.Requirments;
                 cou.InstrucotrId = course.InstrucotrId;
-                cou.CenterID = course.CenterID;
                 cou.DepartmentId = course.DepartmentId;
                 cou.PhotoUrl = fileName;
                 Context.Courses.Add(course);
@@ -91,6 +90,12 @@ namespace FreeExp.Controllers
             ViewBag.CurrentUserId = User.Identity.GetUserId();
             ViewBag.ALreadyEnrolled = Context.StudentCourses.Where(x => x.StudentId == currentuser)
                 .Where(x => x.CourseId == id).FirstOrDefault();
+            ViewBag.Rated5Stars = Context.RatingAndReviews.Where(x => x.Rating == 5).Count();
+            ViewBag.Rated4Stars = Context.RatingAndReviews.Where(x => x.Rating == 4).Count();
+            ViewBag.Rated3Stars = Context.RatingAndReviews.Where(x => x.Rating == 3).Count();
+            ViewBag.Rated2Stars = Context.RatingAndReviews.Where(x => x.Rating == 2).Count();
+            ViewBag.Rated1Stars = Context.RatingAndReviews.Where(x => x.Rating == 1).Count();
+            ViewBag.AvgRate = CalRate(ViewBag.Rated5Stars, ViewBag.Rated4Stars, ViewBag.Rated3Stars, ViewBag.Rated2Stars, ViewBag.Rated1Stars);
             return View("CourseDetails", course);
         }
         [HttpPost]
@@ -121,7 +126,6 @@ namespace FreeExp.Controllers
             cou.LastUpdateOn = DateTime.Now;
             cou.Requirments = course.Requirments;
             cou.InstrucotrId = course.InstrucotrId;
-            cou.CenterID = course.CenterID;
             cou.DepartmentId = course.DepartmentId;
             cou.PhotoUrl = fileName;
             Context.Entry(cou).State = EntityState.Modified;
@@ -137,6 +141,11 @@ namespace FreeExp.Controllers
             Context.SaveChanges();
             return View("");
         }
-
+        public double CalRate(int star5 , int star4 , int star3 , int star2 , int star1)
+        {
+            double result = (5 * star5 + 4 * star4 + 3 * star3 + 2 * star2 + 1 * star1) / (star5 + star4 + star3 + star2 + star1);
+            var roundedB = Math.Round(result, 0, MidpointRounding.AwayFromZero);
+            return roundedB;
+        }
     }
 }

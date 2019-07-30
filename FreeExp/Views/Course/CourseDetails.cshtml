@@ -39,56 +39,146 @@
                     <h4 class="title">Objectives</h4>
                     <div class="content">
                         @Html.DisplayFor(model => model.Description)
-                        
+
                     </div>
 
                     <h4 class="title">Eligibility</h4>
                     <div class="content">
                         @Html.DisplayFor(model => model.Requirments)
-                        
+
                     </div>
+                    <ul class="nav nav-tabs" id="myForm">
+                        <li class="active"><a href="#one">Course Outline</a></li>
+                        <li><a href="#two">Descussion</a></li>
+                        <li><a href="#three">Rate</a></li>
+                    </ul>
+                    <div class="content tab-content">
+                        <div class="tab-pane active" id="one">
+                            <ul class="course_list">
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction Lesson</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Basics of HTML</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Getting Know about HTML</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Tags and Attributes</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Basics of CSS</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Getting Familiar with CSS</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction to Bootstrap</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Responsive Design</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Canvas in HTML 5</p>
+                                    <a class="primary-btn text-uppercase" href="#">View Details</a>
+                                </li>
 
-                    <h4 class="title">Course Outline</h4>
-                    <div class="content">
-                        <ul class="course_list">
-                            <li class="justify-content-between d-flex">
-                                <p>Introduction Lesson</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Basics of HTML</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Getting Know about HTML</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Tags and Attributes</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Basics of CSS</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Getting Familiar with CSS</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Introduction to Bootstrap</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Responsive Design</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
-                            <li class="justify-content-between d-flex">
-                                <p>Canvas in HTML 5</p>
-                                <a class="primary-btn text-uppercase" href="#">View Details</a>
-                            </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="two">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <img src="~/Content/img/author1.png" style="width: auto;height: 40px;border-radius: 50%;" />
+                                    </div>
+                                    <div class="col-md-11">
+                                        <textarea type="text" class="form-control" id="Body" placeholder="Write Question" style="border-radius:20px;" rows="4"></textarea>
+                                        <br />
+                                        <button type="submit" class="btn btn-primary form-control" id="SubmitAsk">Ask</button>
+                                        <br />
+                                        <hr />
+                                    </div>
+                                </div>
+                                @if (Model.QandAs.Count != 0)
+                                {
+                                    foreach (var q in Model.QandAs)
+                                    {
+                                        <ul>
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <img src="~/Content/img/author1.png" style="width: auto;height: 40px;border-radius: 50%;" />
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="col-md-11">
+                                                    <div type="text" class="form-control" id="Body">@q.QuestionContent</div>
+                                                    <div>@q.AskedAt</div>
+                                                    <hr />
+                                                </div>
+                                                @if (q.PracticeQandAs != null)
+                                                {
+                                                    foreach (var pq in q.PracticeQandAs)
+                                                    {
+                                                        <ul>
+                                                            <li>
+                                                                <div class="row">
+                                                                    <div class="col-md-1">
+                                                                        <img src="~/Content/img/author1.png" style="width: auto;height: 40px;border-radius: 50%;" />
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="col-md-11">
+                                                                    <div type="text" class="form-control" id="Body">@pq.AnswerBody</div>
+                                                                    <div>@pq.AnswerDate</div>
+                                                                    <hr />
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    }
+                                                }
+                                            </li>
+                                        </ul>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>Be The First to Ask</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="three">
+                            <div class="rating" style="vertical-align:middle;">
+                                <label>
+                                    <input type="radio" name="rating" value="5" title="5 stars"> 5
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="4" title="4 stars"> 4
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="3" title="3 stars"> 3
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="2" title="2 stars"> 2
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="1" title="1 star"> 1
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="SubmitRate">Submit Rate</button>
 
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,130 +218,93 @@
                 <input type="hidden" id="CurrentCourseId" value="@ViewBag.CurrentCourseId" />
                 <input type="hidden" id="CurrentUserId" value="@ViewBag.CurrentUserId" />
                 <h4 class="title">Reviews</h4>
-                <div class="content">
-                    <div class="review-top row pt-40">
-                        <div class="col-lg-12">
-                            <h6 class="mb-15">Provide Your Rating</h6>
-                            <div class="d-flex flex-row reviews justify-content-between">
-                                <span>Quality</span>
-                                <div class="star">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <span>Outstanding</span>
-                            </div>
-                            <div class="d-flex flex-row reviews justify-content-between">
-                                <span>Puncuality</span>
-                                <div class="star">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <span>Outstanding</span>
-                            </div>
-                            <div class="d-flex flex-row reviews justify-content-between">
-                                <span>Quality</span>
-                                <div class="star">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <span>Outstanding</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feedeback">
-                        <h6>Your Feedback</h6>
-                        <textarea name="feedback" class="form-control" cols="10" rows="10"></textarea>
-                        <div class="mt-10 text-right">
-                            <a href="#" class="primary-btn text-right text-uppercase">Submit</a>
-                        </div>
-                    </div>
-                    <div class="comments-area mb-30">
-                        <div class="comment-list">
-                            <div class="single-comment single-reviews justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c1.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5>
-                                            <a href="#">Emilly Blunt</a>
-                                            <div class="star">
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                            </div>
-                                        </h5>
-                                        <p class="comment">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment single-reviews justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c2.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5>
-                                            <a href="#">Elsie Cunningham</a>
-                                            <div class="star">
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                            </div>
-                                        </h5>
-                                        <p class="comment">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment single-reviews justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c3.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5>
-                                            <a href="#">Maria Luna</a>
-                                            <div class="star">
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                            </div>
-                                        </h5>
-                                        <p class="comment">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @{
+                    switch (ViewBag.AvgRate)
+                    {
+                        case 5:
+                            // Use the text block below to separate html elements from code
+                            <text>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </text>
+                            break;  // Always break each case
+                        case 4:
+                            <text>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </text>
+                            break;
+                        case 3:
+                            <text>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </text>
+                            break;
+                        case 2:
+                            <text>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </text>
+                            break;
+                        case 1:
+                            <text>
+                                <span class="fa fa-star checked"></span>
+                            </text>
+                            break;
+                        default:
+                            <text>
+                                <h1>.</h1>
+                            </text>
+                            break;
+                    }
+                }
+                <h3 class="title">Detailed Review</h3>
+                @if (ViewBag.Rated5Stars != 0)
+                {
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>(@ViewBag.Rated5Stars)</p>
+                }
+                @if (ViewBag.Rated4Stars != 0)
+                {
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>(@ViewBag.Rated4Stars)</p>
+
+                }
+                @if (ViewBag.Rated3Stars != 0)
+                {
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>(@ViewBag.Rated3Stars)</p>
+
+                }
+                @if (ViewBag.Rated2Stars != 0)
+                {
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>(@ViewBag.Rated2Stars)</p>
+
+                }
+                @if (ViewBag.Rated1Stars != 0)
+                {
+                    <span class="fa fa-star checked"></span>
+                    <p>(@ViewBag.Rated1Stars)</p>
+
+                }
             </div>
         </div>
     </div>

@@ -12,6 +12,7 @@ namespace FreeExp.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
                         Address = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -183,6 +184,21 @@ namespace FreeExp.Migrations
                 .Index(t => t.CourseID);
             
             CreateTable(
+                "dbo.RatingAndReviews",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        StudentId = c.String(maxLength: 128),
+                        CourseId = c.Int(nullable: false),
+                        Rating = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Students", t => t.StudentId)
+                .Index(t => t.StudentId)
+                .Index(t => t.CourseId);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -193,6 +209,20 @@ namespace FreeExp.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.StudentCourses",
+                c => new
+                    {
+                        RollId = c.Int(nullable: false, identity: true),
+                        StudentId = c.String(maxLength: 128),
+                        CourseId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RollId)
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Students", t => t.StudentId)
+                .Index(t => t.StudentId)
+                .Index(t => t.CourseId);
             
             CreateTable(
                 "dbo.StudentGoingToSessions",
@@ -210,7 +240,7 @@ namespace FreeExp.Migrations
                 .Index(t => t.student_Id);
             
             CreateTable(
-                "dbo.StudentCourses",
+                "dbo.StudentCourses1",
                 c => new
                     {
                         Student_Id = c.String(nullable: false, maxLength: 128),
@@ -264,13 +294,17 @@ namespace FreeExp.Migrations
             DropForeignKey("dbo.Instructors", "Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.StudentGoingToSessions", "student_Id", "dbo.Students");
             DropForeignKey("dbo.StudentGoingToSessions", "CourseSessionId", "dbo.CourseSessions");
+            DropForeignKey("dbo.StudentCourses", "StudentId", "dbo.Students");
+            DropForeignKey("dbo.StudentCourses", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.RatingAndReviews", "StudentId", "dbo.Students");
+            DropForeignKey("dbo.RatingAndReviews", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.CourseSessions", "Center_Id", "dbo.Centers");
             DropForeignKey("dbo.CourseMaterials", "CourseID", "dbo.Courses");
             DropForeignKey("dbo.PracticeQandAs", "QandAId", "dbo.QandAs");
             DropForeignKey("dbo.PracticeQandAs", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.StudentCourses", "Course_Id", "dbo.Courses");
-            DropForeignKey("dbo.StudentCourses", "Student_Id", "dbo.Students");
+            DropForeignKey("dbo.StudentCourses1", "Course_Id", "dbo.Courses");
+            DropForeignKey("dbo.StudentCourses1", "Student_Id", "dbo.Students");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.QandAs", "UserOwnerId", "dbo.AspNetUsers");
             DropForeignKey("dbo.QandAs", "CourseId", "dbo.Courses");
@@ -282,11 +316,15 @@ namespace FreeExp.Migrations
             DropForeignKey("dbo.Courses", "CenterID", "dbo.Centers");
             DropIndex("dbo.Students", new[] { "Id" });
             DropIndex("dbo.Instructors", new[] { "Id" });
-            DropIndex("dbo.StudentCourses", new[] { "Course_Id" });
-            DropIndex("dbo.StudentCourses", new[] { "Student_Id" });
+            DropIndex("dbo.StudentCourses1", new[] { "Course_Id" });
+            DropIndex("dbo.StudentCourses1", new[] { "Student_Id" });
             DropIndex("dbo.StudentGoingToSessions", new[] { "student_Id" });
             DropIndex("dbo.StudentGoingToSessions", new[] { "CourseSessionId" });
+            DropIndex("dbo.StudentCourses", new[] { "CourseId" });
+            DropIndex("dbo.StudentCourses", new[] { "StudentId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.RatingAndReviews", new[] { "CourseId" });
+            DropIndex("dbo.RatingAndReviews", new[] { "StudentId" });
             DropIndex("dbo.CourseMaterials", new[] { "CourseID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -304,9 +342,11 @@ namespace FreeExp.Migrations
             DropIndex("dbo.Courses", new[] { "CenterID" });
             DropTable("dbo.Students");
             DropTable("dbo.Instructors");
-            DropTable("dbo.StudentCourses");
+            DropTable("dbo.StudentCourses1");
             DropTable("dbo.StudentGoingToSessions");
+            DropTable("dbo.StudentCourses");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.RatingAndReviews");
             DropTable("dbo.CourseMaterials");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.QandAs");

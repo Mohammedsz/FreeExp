@@ -42,10 +42,10 @@ namespace FreeExp.Controllers
             return View();
         }
         
-        public ActionResult GetCourses(int centerId)
-        {
-            IEnumerable<Course> courses = Context.Centers.FirstOrDefault(c => c.Id == centerId).Courses;
-            return View("", courses);
-        }
+        //public ActionResult GetCourses(int centerId)
+        //{
+        //    IEnumerable<Course> courses = Context.Centers.FirstOrDefault(c => c.Id == centerId).Courses;
+        //    return View("", courses);
+        //}
     }
 }

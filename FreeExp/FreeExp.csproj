@@ -202,21 +202,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907061155555_Initial.cs" />
-    <Compile Include="Migrations\201907061155555_Initial.Designer.cs">
-      <DependentUpon>201907061155555_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201907300943432_Initial.cs" />
+    <Compile Include="Migrations\201907300943432_Initial.Designer.cs">
+      <DependentUpon>201907300943432_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907061220183_Initial2.cs" />
-    <Compile Include="Migrations\201907061220183_Initial2.Designer.cs">
-      <DependentUpon>201907061220183_Initial2.cs</DependentUpon>
+    <Compile Include="Migrations\201907301016431_Initial2.cs" />
+    <Compile Include="Migrations\201907301016431_Initial2.Designer.cs">
+      <DependentUpon>201907301016431_Initial2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907121254127_Initial3.cs" />
-    <Compile Include="Migrations\201907121254127_Initial3.Designer.cs">
-      <DependentUpon>201907121254127_Initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907181837263_addRating.cs" />
-    <Compile Include="Migrations\201907181837263_addRating.Designer.cs">
-      <DependentUpon>201907181837263_addRating.cs</DependentUpon>
+    <Compile Include="Migrations\201907301019262_Initial3.cs" />
+    <Compile Include="Migrations\201907301019262_Initial3.Designer.cs">
+      <DependentUpon>201907301019262_Initial3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -507,17 +503,14 @@
     <Folder Include="Views\QandA\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907061155555_Initial.resx">
-      <DependentUpon>201907061155555_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907300943432_Initial.resx">
+      <DependentUpon>201907300943432_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907061220183_Initial2.resx">
-      <DependentUpon>201907061220183_Initial2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907301016431_Initial2.resx">
+      <DependentUpon>201907301016431_Initial2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907121254127_Initial3.resx">
-      <DependentUpon>201907121254127_Initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907181837263_addRating.resx">
-      <DependentUpon>201907181837263_addRating.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907301019262_Initial3.resx">
+      <DependentUpon>201907301019262_Initial3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
